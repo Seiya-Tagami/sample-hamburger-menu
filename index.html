@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sample-hamburger-menu</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="header-inner">
+          <img src="./img/logo.svg" alt="" class="header-logo" />
+          <nav class="header-nav js-header-nav">
+            <ul class="header-nav-inner">
+              <li><a href="">POSSEとは</a></li>
+              <li><a href="">クイズ</a></li>
+              <li>
+                <a href="" class="header-sns-wrapper"><img src="./img/icon/icon-twitter.svg" alt="" /></a>
+              </li>
+              <li>
+                <a href="" class="header-sns-wrapper"><img src="./img/icon/icon-instagram.svg" alt="" /></a>
+              </li>
+            </ul>
+            <!-- 残念ながら、pc版のナビゲーションとスマホ版は分けて作った方が都合が良さそうです。以下に作ります-->
+            <ul class="sp-hamburger-nav-inner">
+              <li class="sp-hamburger-header">
+                <a href="">POSSEとは</a>
+                <a href="">クイズ</a>
+              </li>
+              <li class="sp-hamburger-footer">
+                <a class="sp-hamburger-line" href="">
+                  <div class="sp-hamburger-line-container">
+                    <div class="sp-hamburger-line-icon"><img src="./img/icon/icon-line.svg" alt=""></div>
+                    <span>POSSE公式LINE追加</span>
+                    <img src="./img/icon/icon-link-light.svg" alt="" class="sp-hamburger-line-link">
+                  </div>
+                </a>
+                <a class="sp-hamburger-link">
+                  <span>POSSE公式サイト</span>
+                  <img src="./img/icon/icon-link-gray-dark.svg" alt="" />
+                </a>
+                <div class="sp-hamburger-sns-container">
+                  <a href="" class="sp-hamburger-sns-wrapper"><img src="./img/icon/icon-twitter.svg" alt="" /></a>
+                  <a href="" class="sp-hamburger-sns-wrapper"><img src="./img/icon/icon-instagram.svg" alt="" /></a>
+                </div>
+              </li>
+            </ul>
+          </nav>
+          <button class="header-hamburger-menu js-hamburger-menu-button">
+            <span class="header-hamburger-menu-line01 js-hamburger-menu-line01"></span>
+            <span class="header-hamburger-menu-line02 js-hamburger-menu-line02"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main></main>
+    <footer></footer>
+    <script src="./main.js"></script>
+  </body>
+</html>

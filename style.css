@@ -1,0 +1,237 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #666666;
+  font-weight: bold;
+}
+
+.header-container {
+  height: 80px;
+  padding: 15px 24px;
+  background-color: #ffffff;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  height: 27px;
+}
+
+/* pc版ナビゲーション */
+.header-nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-sns-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  margin-left: 16px;
+  border-radius: 50%;
+  border: 1px solid #eeeeee;
+}
+
+.header-sns-wrapper img {
+  width: 25px;
+  height: 25px;
+}
+
+/* sp版ナビゲーション*/
+.sp-hamburger-nav-inner {
+  display: none;
+  /* pc版のうちはdisplay:noneで消してあげる */
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 80%;
+  margin-top: 76px;
+}
+
+.sp-hamburger-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.sp-hamburger-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.sp-hamburger-line {
+  padding: 16px 16px 16px 74px;
+  background-color:#5FDF5B;
+  border-radius: 30px;
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.sp-hamburger-line-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sp-hamburger-line-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.sp-hamburger-line-link {
+  margin-left: 35px;
+}
+
+.sp-hamburger-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.sp-hamburger-link img{
+  width: 12.25px;
+  height: 12.25px;
+}
+
+.sp-hamburger-sns-container {
+  display: flex;
+  gap: 10px;
+}
+
+.sp-hamburger-sns-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #eeeeee;
+}
+
+.sp-hamburger-sns-wrapper img {
+  width: 25px;
+  height: 25px;
+}
+
+/* ハンバーガーメニューのボタンの大きさは予め指定しておく。また、buttonタグにいらない要素がついていることが多いので確認しながら打ち消してあげる。 */
+.header-hamburger-menu {
+  position: relative;
+  display: none;
+  width: 34px;
+  height: 14px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+/* ハンバーガーメニューのボタンの線はpositionを用いて調整する。*/
+.header-hamburger-menu-line01 {
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #333333;
+  border-radius: 2px;
+  transition-duration: .4s;
+}
+
+.header-hamburger-menu-line02 {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #333333;
+  border-radius: 2px;
+  transition-duration: .4s;
+}
+
+/* ハンバーガーメニューのボタンの線がクリック時に角度が変わるようにする。これらのクラスはjsにおいて使う。*/
+.rotate-line01 {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.rotate-line02 {
+  transform: translateY(-4px) rotate(-45deg);
+} 
+
+main {
+  height: 120vh;
+  background-color: gray;
+}
+
+
+
+/* 以下responsive対応 */
+@media (max-width: 767px) {
+
+  /* ここが今回のハンバーガーメニューの肝と言える。header-containerでわざわざ二重にdivで囲った意味もここにある。（※headerタグにはすでにposition:fixedがついているため、打ち消してしまわないような作りにする）ここにおいて、スマホサイズになったときにheader-containerにposition:relativeを付けてあげることで、position:absoluteのついたheader-navと紐づけることができる。*/
+  .header-container {
+    position: relative;
+    height: 56px;
+    padding: 16px;
+  }
+
+  .header-logo {
+    width: 120px;
+    height: 24px;
+  }
+
+  /*top:100%(もしくは56px)とすることで、header-containerの高さ分下方向へ動かせるのできれいにハンバーガーメニューを展開できる。また、 calc()は計算できるので使いやすい。56pxはヘッダーの高さなので100vhから引いてあげるとピッタリな大きさになる */
+  .header-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    height: calc(100vh - 56px);
+    background-color: #cab7cc;
+  }
+  
+/* pc版のナビゲーションはここで消してあげる */
+  .header-nav-inner {
+    display: none;
+  }
+
+/* sp版のナビゲーションはdisplay:flexをあててあげることで、表示させる */
+  .sp-hamburger-nav-inner {
+    display: flex;
+  }
+
+  .header-hamburger-menu {
+    display: block;
+  }
+}
+
+/* jsで使う用のクラス */
+.block {
+  display: block;
+}
